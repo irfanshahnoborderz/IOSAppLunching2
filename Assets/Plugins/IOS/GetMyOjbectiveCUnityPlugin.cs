@@ -31,7 +31,7 @@ class GetMyOjbectiveCUnityPlugin : MonoBehaviour
     public static int WegotYelpApp()
     {
         int YelpStatus = 0; //Assign value we recieve to this
-
+             
         // Calls the isFBInstalled function inside the plugin
         YelpStatus = isYelpInstalled(); //returns the status of FB install in ObjC plugin
 
