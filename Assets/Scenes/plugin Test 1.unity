@@ -541,10 +541,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 870458879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e8988283f709c945a6aca6af4512c39, type: 3}
+  m_Script: {fileID: 11500000, guid: 79e96e65ff8541a43b8fcf8b10469319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AvailableFB: {fileID: 653527325}
+  facebookApp: fb
+  facebookAddress: https://www.facebook.com/
 --- !u!4 &870458881
 Transform:
   m_ObjectHideFlags: 0
@@ -741,7 +742,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 870458880}
-        m_MethodName: TestFB
+        m_MethodName: OpenFacebookPage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
