@@ -9,6 +9,8 @@ public class Manager : MonoBehaviour
     public InputField Field;
     bool fail = false;
 
+    public string facebookApp;
+    public string facebookAddress;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class Manager : MonoBehaviour
       
     public void LaunchApp2()
     {
+#if UNITY_ANDROID
         bool fail = false;  
         //string message = "PLayer name " + "_" + "   Email  ";
          string message = Field.text;  
@@ -61,32 +64,23 @@ public class Manager : MonoBehaviour
         ca.Dispose();
         packageManager.Dispose();
         launchIntent.Dispose();
+#endif
+#if UNITY_IOS
+        OpenFacebookPage();
+#endif
     }  
-    /*
-    public void launchApp()
+    public void OpenFacebookPage()
     {
-        AndroidJavaObject intent = new AndroidJavaObject("android.content.Intent", "android.intent.action.VIEW");
+        float startTime;
+        startTime = Time.timeSinceLevelLoad;
 
-        string arg1 = Random.RandomRange(50, 100).ToString();  
-        AndroidJavaClass up = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        AndroidJavaObject ca = up.GetStatic<AndroidJavaObject>("currentActivity");
-        AndroidJavaObject packageManager = ca.Call<AndroidJavaObject>("getPackageManager");  
-        AndroidJavaObject launchIntent = null;
-         try   
+        //open the facebook app
+        Application.OpenURL(facebookApp);
+
+        if (Time.timeSinceLevelLoad - startTime <= 1f)
         {
-             launchIntent = packageManager.Call<AndroidJavaObject>("getLaunchIntentForPackage", bundleId);  
-          }        
-        catch (System.Exception e)
-        {   
-            fail = true;
-        }    
-
-        if (fail)
-        { //open app in store
-            Application.OpenURL(AppUrl);
+            //fail. Open safari.
+            Application.OpenURL(facebookAddress);
         }
-        else //open the app
-            ca.Call("startActivity", launchIntent);     
-    }   
-    */
+    }
 }
