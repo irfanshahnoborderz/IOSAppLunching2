@@ -544,7 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e96e65ff8541a43b8fcf8b10469319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facebookApp: fb
+  facebookApp: Facebook
   facebookAddress: https://www.facebook.com/
 --- !u!4 &870458881
 Transform:
