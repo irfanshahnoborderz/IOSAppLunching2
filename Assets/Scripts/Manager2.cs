@@ -10,15 +10,14 @@ using UnityEngine.UI;
     void Start()
     {
         UpdateArguments();
-     }
+     }  
     public void UpdateArguments()
     {
+#if UNITY_ANDROID
         string arguments = "";
-       
-         AndroidJavaClass UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+          AndroidJavaClass UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         AndroidJavaObject currentActivity = UnityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
-
-        AndroidJavaObject intent = currentActivity.Call<AndroidJavaObject>("getIntent");
+         AndroidJavaObject intent = currentActivity.Call<AndroidJavaObject>("getIntent");
         bool hasExtra = intent.Call<bool>("hasExtra", "arguments");
         if (hasExtra)
         {
@@ -30,7 +29,13 @@ using UnityEngine.UI;
         {
             argumentTxt.text = "No orguments";
         }  
-    }     
+#endif
+
+#if UNITY_IOS
+        
+#endif
+
+    }
 
     private void OnApplicationPause(bool pause)
     {
