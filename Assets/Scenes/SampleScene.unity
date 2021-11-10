@@ -1208,6 +1208,8 @@ MonoBehaviour:
   AppUrl: https://play.google.com/store/apps/details?id=com.wecut.staridol
   bundleId: com.noborders.xanawallet
   Field: {fileID: 1479963808}
+  facebookApp: xanawallet
+  facebookAddress: https://www.facebook.com/
 --- !u!4 &1785272764
 Transform:
   m_ObjectHideFlags: 0
